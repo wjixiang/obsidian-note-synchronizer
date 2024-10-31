@@ -1,6 +1,6 @@
 import { App, PluginSettingTab, Setting } from 'obsidian';
 import locale from 'src/lang';
-import AnkiSynchronizer from 'main';
+import AnkiSynchronizer from './main';
 
 // Plugin Settings
 export interface Settings {

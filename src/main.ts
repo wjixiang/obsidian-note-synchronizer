@@ -5,7 +5,7 @@ import { MediaManager } from 'src/media';
 import locale from 'src/lang';
 import { NoteDigest, NoteState, NoteTypeDigest, NoteTypeState } from 'src/state';
 import AnkiSynchronizerSettingTab, { Settings, DEFAULT_SETTINGS } from 'src/setting';
-import { version } from './package.json';
+import { version } from '../package.json';
 import { MD5 } from 'object-hash';
 
 interface Data {
