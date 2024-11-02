@@ -8,13 +8,15 @@ export interface Settings {
   linkify: boolean;
   headingLevel: number;
   highlightAsCloze: boolean;
+  originVault: string;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
   render: true,
   linkify: true,
   headingLevel: 1,
-  highlightAsCloze: false
+  highlightAsCloze: false,
+  originVault: "Obsidian Vault"
 };
 
 export default class AnkiSynchronizerSettingTab extends PluginSettingTab {
@@ -28,6 +30,20 @@ export default class AnkiSynchronizerSettingTab extends PluginSettingTab {
   display(): void {
     this.containerEl.empty();
     this.containerEl.createEl('h2', { text: locale.settingTabHeader });
+
+    new Setting(this.containerEl)
+    .setName("Main Vault Name")
+    .setDesc("Input the name of the main vault. Your cards will be navigated to it from anki.")
+    .addText(text=>text
+      .setValue(this.plugin.settings.originVault)
+      .onChange(async (value)=>{
+        this.plugin.settings.originVault=value
+        await this.plugin.save()
+        console.log(this.plugin.settings.originVault)
+        
+      })
+    )
+
 
     new Setting(this.containerEl)
       .setName(locale.settingRenderName)

@@ -20,16 +20,20 @@ export default class AnkiSynchronizer extends Plugin {
   settings = DEFAULT_SETTINGS;
   mediaManager = new MediaManager();
   noteManager = new NoteManager(this.settings);
-  noteState = new NoteState(this);
+  // noteState = new NoteState(this);
   noteTypeState = new NoteTypeState(this);
+  noteState:any
   
 
   async onload() {
     // Recover data from local file
     const data: Data | null = await this.loadData();
+
     if (data) {
       const { settings, noteState, noteTypeState } = data;
       Object.assign(this.settings, settings);
+      console.log("now:",settings.originVault)
+      this.noteState = new NoteState(this);
       for (const key in noteState) {
         this.noteState.set(parseInt(key), noteState[key]);
       }
@@ -39,6 +43,12 @@ export default class AnkiSynchronizer extends Plugin {
     }
     this.configureUI();
     console.log(locale.onLoad);
+    console.log("setting: ",this.settings.originVault)
+    new Notice(`target vault:${this.settings.originVault}\n\nplease remember to reload plugin manually after changing target vault`)
+  }
+
+  loadMainVault(){
+
   }
 
   configureUI() {

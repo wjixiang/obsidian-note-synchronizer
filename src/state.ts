@@ -6,7 +6,10 @@ import Anki from './anki';
 import Formatter from './format';
 import locale from './lang';
 
+
+
 const vualt_name = "Obsidian Vault"
+// console.log(AnkiSynchronizer.Setting)
 
 abstract class State<K, V, I = undefined> extends Map<K, V> {
   protected plugin: AnkiSynchronizer;
@@ -16,6 +19,7 @@ abstract class State<K, V, I = undefined> extends Map<K, V> {
     super();
     this.plugin = plugin;
     this.anki = plugin.anki;
+    console.log(this.plugin.settings.originVault)
   }
 
   async change(newState: Map<K, V | [V, I]>) {
@@ -103,7 +107,8 @@ export class NoteState extends State<number, NoteDigest, Note> {
   constructor(plugin: AnkiSynchronizer) {
     super(plugin);
     // this.formatter = new Formatter(this.plugin.app.vault.getName(), this.plugin.settings);
-    this.formatter = new Formatter(vualt_name, this.plugin.settings);
+    console.log("target:",this.plugin.settings.originVault)
+    this.formatter = new Formatter(this.plugin.settings.originVault, this.plugin.settings);//fixed navigatin
   }
 
   // Existing notes may have 3 things to update: deck, fields, tags
