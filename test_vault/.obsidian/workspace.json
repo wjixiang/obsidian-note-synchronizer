@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "faee02f2677fb526",
+        "id": "c0f8e64e1f5d519b",
         "type": "tabs",
         "children": [
           {
-            "id": "5dcae5e1b316e329",
+            "id": "46a487bd387230ca",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "妇产科学/产后宫缩痛的临床表现.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "产后宫缩痛的临床表现"
             }
           }
         ]
@@ -146,6 +150,8 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "note-synchronizer:导入笔记类型": false,
+      "note-synchronizer:同步": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -154,6 +160,44 @@
       "command-palette:打开命令面板": false
     }
   },
-  "active": "5dcae5e1b316e329",
-  "lastOpenFiles": []
+  "active": "46a487bd387230ca",
+  "lastOpenFiles": [
+    "内科学/24小时动态血压测量正常参考值.md",
+    "妇产科学/产褥期处理.md",
+    "妇产科学/产后宫缩痛的临床表现.md",
+    "妇产科学/产褥期循环及血液系统的变化.md",
+    "妇产科学/第三产程的观察处理.md",
+    "妇产科学/手取胎盘的指征.md",
+    "妇产科学/产后出血的预防.md",
+    "妇产科学/第二产程中的胎心监护.md",
+    "妇产科学/第一产程的临床表现.md",
+    "妇产科学/宫口扩张.md",
+    "妇产科学/产程中的宫缩监测.md",
+    "妇产科学/产程的时限.md",
+    "妇产科学/产程的分期.md",
+    "妇产科学/宫缩的类型.md",
+    "妇产科学/胎头径线.md",
+    "妇产科学/宫颈的扩张.md",
+    "妇产科学/宫颈的扩张顺序.md",
+    "妇产科学/各骨盆平面对产程的影响.md",
+    "妇产科学/产力的组成及特点.md",
+    "妇产科学/孕周对胎儿致畸的影响.md",
+    "妇产科学/胎盘功能检查.md",
+    "妇产科学/胎儿成熟度的检查指标.md",
+    "妇产科学/胎儿生物物理评分(Manning评分).md",
+    "妇产科学/无应激试验的结果判读及处理.md",
+    "妇产科学/缩宫素激惹试验的试验结果及处理.md",
+    "内科学/微小病变性肾病的超微病理表现.md",
+    "zotero/storage/5MXMTXQY",
+    "zotero/storage/SM6X7QBW",
+    "zotero/storage/4DP7C5N6",
+    "zotero/storage/B4YU5JZ7",
+    "zotero/storage/GES7VC57",
+    "zotero/storage/K9HNX3PQ",
+    "zotero/storage/YQCSBXZN",
+    "zotero/storage/7YK4GRBI",
+    "zotero/storage/YQKQG8MY",
+    "zotero/storage/KDKTS57S",
+    "Vault/凝血note.canvas"
+  ]
 }

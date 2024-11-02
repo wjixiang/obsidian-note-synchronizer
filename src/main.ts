@@ -148,8 +148,83 @@ export default class AnkiSynchronizer extends Plugin {
     const notesInfoResponse = await this.anki.notesInfoByDeck(deck)
 
     console.log("Found notes in Anki", notesInfoResponse);
+  
 
-    
+    // const CONCURRENCY_LIMIT = 5; // 设置并发限制  
+
+    // const processFiles = async (files:any) => {  
+    //     const executing = new Set();  
+    //     for (const file of files) {  
+    //         const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;  
+
+    //         if (!frontmatter) continue;  
+
+    //         const content = await this.app.vault.cachedRead(file);  
+    //         const media = this.app.metadataCache.getFileCache(file)?.embeds;  
+
+    //         const [obsidianNote, mediaNameMap] = this.noteManager.validateNote(  
+    //             file,  
+    //             frontmatter,  
+    //             content,  
+    //             media,  
+    //             this.noteTypeState  
+    //         );  
+
+    //         if (!obsidianNote) continue;  
+
+    //         console.log(`Validated note ${obsidianNote.title()}`, obsidianNote);  
+
+    //         if (media) {  
+    //             for (const item of media) {  
+    //                 this.noteState.handleAddMedia(  
+    //                     this.mediaManager.parseMedia(item, this.app.vault, this.app.metadataCache)  
+    //                 );  
+    //             }  
+    //         }  
+
+    //         const correspondingAnkiNote = notesInfoResponse.find((note: { noteId: any; }) => note.noteId === frontmatter.nid);  
+
+    //         // Merge anki tags and obsidian tags  
+    //         const obsidianTags = frontmatter.tags || [];  
+    //         const ankiTags = correspondingAnkiNote?.tags || [];  
+    //         const mergedTags = [...new Set([...obsidianTags, ...ankiTags])];  
+
+    //         const tagsBeforeHash = MD5(frontmatter.tags);  
+    //         const tagsAfterHash = MD5(mergedTags);  
+    //         const shouldUpdateTags = tagsBeforeHash !== tagsAfterHash;  
+
+    //         if (obsidianNote.nid === 0) {  
+    //             // new file  
+    //             const promise = this.noteState.handleAddNote(obsidianNote).then(nid => {  
+    //                 if (nid === undefined) {  
+    //                     new Notice(locale.synchronizeAddNoteFailureNotice(file.basename));  
+    //                     return;  
+    //                 }  
+    //                 obsidianNote.nid = nid;  
+    //                 return this.app.vault.modify(file, this.noteManager.dump(obsidianNote, mediaNameMap));  
+    //             });  
+    //             executing.add(promise);  
+    //         }  
+
+    //         if (shouldUpdateTags) {  
+    //             const promise = this.app.vault.modify(file, this.noteManager.dump(obsidianNote, mediaNameMap));  
+    //             executing.add(promise);  
+    //         }  
+
+    //         state.set(obsidianNote.nid, [obsidianNote.digest(), obsidianNote]);  
+    //         console.log(file)
+    //         // 控制并发  
+    //         if (executing.size >= CONCURRENCY_LIMIT) {  
+    //             await Promise.race(executing); // 等待其中一个请求完成  
+    //         }  
+    //     }  
+
+    //     // 等待所有剩余的请求完成  
+    //     await Promise.all(executing);  
+    // };
+
+    // processFiles(files)
+
     for (const file of files) {
       const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;
 
