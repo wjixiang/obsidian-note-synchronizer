@@ -1,3 +1,19 @@
+This variation is developed to achieve synchronizing cards from different vault, still maintain the right link-navigation to the main vault.
+
+# Usage
+1. Download this repository
+2. Copy the `.\dist` folder to the plugin folder of your secendary vault
+3. Configure the naem of main vault in plugin's setting tab
+4. Copy/sync the folders that you want to sync to anki to the secendary vault
+5. Sync cards
+
+# Warning
+- You need to keep the folder structure consistent
+- Remember to reload the plugin after adjusting the configuration
+
+
+---
+
 # Obsidian Anki Synchronizer
 
 See Chinese README [here](README.zh.md).
