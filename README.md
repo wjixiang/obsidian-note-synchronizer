@@ -1,4 +1,4 @@
-This variation is developed to achieve synchronizing cards from different vault, still maintain the right link-navigation to the main vault.
+This variation is designed to synchronize cards from different vaults while preserving the correct link navigation to the main vault.
 
 # Usage
 1. Download this repository
