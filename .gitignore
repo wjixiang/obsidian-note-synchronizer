@@ -1,5 +1,9 @@
+
+
 # vscode
 .vscode 
+test_vault/
+test_vault/*
 
 # Intellij
 *.iml
