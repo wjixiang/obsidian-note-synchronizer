@@ -4,45 +4,33 @@
     "type": "split",
     "children": [
       {
-        "id": "c0f8e64e1f5d519b",
+        "id": "317a71442a4f5350",
         "type": "tabs",
         "children": [
           {
-            "id": "46a487bd387230ca",
+            "id": "6c40b8f665425890",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "妇产科学/第二产程中的胎心监护.md",
+                "file": "内科学/白塞病的基本症状.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "第二产程中的胎心监护"
+              "title": "白塞病的基本症状"
             }
           },
           {
-            "id": "7c71ee3aeece2cff",
+            "id": "76885850f99995a0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "release-notes",
               "state": {
-                "file": "内科学/未命名2222.md",
-                "mode": "source",
-                "source": false
+                "currentVersion": "1.7.5"
               },
               "icon": "lucide-file",
-              "title": "未命名2222"
-            }
-          },
-          {
-            "id": "2c125cf8e428c563",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "Release Notes 1.7.5"
             }
           }
         ],
@@ -77,7 +65,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "白塞病",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -102,7 +90,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 299.5
   },
   "right": {
     "id": "ae09b6ae1e609537",
@@ -185,44 +173,44 @@
       "note-synchronizer:同步": false
     }
   },
-  "active": "7c71ee3aeece2cff",
+  "active": "76885850f99995a0",
   "lastOpenFiles": [
-    "内科学/未命名000.md",
-    "内科学/未命名2222.md",
-    "妇产科学/未命名111.md",
-    "妇产科学/产前检查的时间.md",
-    "妇产科学/产程中的宫缩监测.md",
-    "妇产科学/未命名232.md",
-    "妇产科学/白带异常的类型及临床意义.md",
-    "test2.md",
-    "妇产科学/test.md",
-    "妇产科学/第二产程的临床表现.md",
-    "妇产科学/第二产程中的胎心监护.md",
-    "妇产科学/产后宫缩痛的临床表现.md",
-    "内科学/24小时动态血压测量正常参考值.md",
-    "妇产科学/产褥期处理.md",
-    "妇产科学/产褥期循环及血液系统的变化.md",
-    "妇产科学/第三产程的观察处理.md",
-    "妇产科学/手取胎盘的指征.md",
-    "妇产科学/产后出血的预防.md",
-    "妇产科学/第一产程的临床表现.md",
-    "妇产科学/宫口扩张.md",
-    "妇产科学/产程的时限.md",
-    "妇产科学/产程的分期.md",
-    "妇产科学/宫缩的类型.md",
-    "妇产科学/胎头径线.md",
-    "妇产科学/宫颈的扩张.md",
-    "妇产科学/宫颈的扩张顺序.md",
-    "zotero/storage/5MXMTXQY",
-    "zotero/storage/SM6X7QBW",
-    "zotero/storage/4DP7C5N6",
-    "zotero/storage/B4YU5JZ7",
-    "zotero/storage/GES7VC57",
-    "zotero/storage/K9HNX3PQ",
-    "zotero/storage/YQCSBXZN",
-    "zotero/storage/7YK4GRBI",
-    "zotero/storage/YQKQG8MY",
-    "zotero/storage/KDKTS57S",
+    "病理学/card/髓样癌大体病理变化.md",
+    "病理学/card/髓样癌光镜病理变化.md",
+    "病理学/card/骨折愈合的过程.md",
+    "病理学/card/风湿热的分期.md",
+    "病理学/card/被覆上皮的再生过程.md",
+    "病理学/card/袖套现象(血管套现象).md",
+    "病理学/card/血道转移的特点.md",
+    "病理学/card/血道转移的常见播散部位.md",
+    "病理学/card/血管通透性增加的机制.md",
+    "病理学/card/血栓的类型.md",
+    "病理学/card/蜂窝织炎的病理变化.md",
+    "病理学/card/葡萄胎大体特点.md",
+    "病理学/card/葡萄胎光镜特点.md",
+    "病理学/card/萎缩性胃炎的病理变化.md",
+    "病理学/card/药物接力度的衡量参数及意义.md",
+    "病理学/card/良性肿瘤和恶性肿瘤的对比.md",
+    "病理学/card/良性母细胞瘤.md",
+    "病理学/card/膜增生性肾小球肾炎光镜病理学变化.md",
+    "病理学/card/脂肪肉瘤的形态学特点.md",
+    "病理学/card/脂肪肉瘤的好发部位.md",
+    "病理学/card/脂纹的病理变化.md",
+    "病理学/card/肿瘤细胞核的异型性.md",
+    "病理学/card/肿瘤性增生和炎性增生的区别.md",
+    "病理学/card/肾细胞癌大体病理变化.md",
+    "病理学/card/肾病综合征相关性肾小球肾炎的流行特点.md",
+    "病理学/card/肾小球肾炎的基本病变化.md",
+    "病理学/card",
+    "病理学",
+    "病理生理学/card/名解：acid-base disturbance",
+    "病理生理学/重要信息",
+    "病理生理学/实验",
+    "病理生理学/card",
+    "病理生理学",
+    "pdf/课本/第十版",
+    "pdf/课本",
+    "pdf/考研",
     "Vault/凝血note.canvas"
   ]
 }
