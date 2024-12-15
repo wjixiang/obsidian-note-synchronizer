@@ -1,4 +1,4 @@
-import { normalizePath, Notice, Plugin, TFile, TFolder, Vault } from 'obsidian';
+import { normalizePath, Notice, Plugin, TFile } from 'obsidian';
 import Anki, { AnkiError } from 'src/anki';
 import Note, { NoteManager } from 'src/note';
 import { MediaManager } from 'src/media';
@@ -151,7 +151,11 @@ export default class AnkiSynchronizer extends Plugin {
     const deck = folderPath?.replace(/\//g, '::') || 'Obsidian';
 
     const folder = this.app.vault.getAbstractFileByPath(folderPath || "/") as any
-    const files = folder?.children as any
+
+    if(!folder){
+      throw new Error("Current folder is empty")
+    }
+    const files:TFile[] = folder.children 
 
     console.log(`Found ${files.length} files in obsidian folder`, folder);
 
@@ -160,108 +164,46 @@ export default class AnkiSynchronizer extends Plugin {
     console.log("Found notes in Anki", notesInfoResponse);
   
 
-    // const CONCURRENCY_LIMIT = 5; // 设置并发限制  
-
-    // const processFiles = async (files:any) => {  
-    //     const executing = new Set();  
-    //     for (const file of files) {  
-    //         const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;  
-
-    //         if (!frontmatter) continue;  
-
-    //         const content = await this.app.vault.cachedRead(file);  
-    //         const media = this.app.metadataCache.getFileCache(file)?.embeds;  
-
-    //         const [obsidianNote, mediaNameMap] = this.noteManager.validateNote(  
-    //             file,  
-    //             frontmatter,  
-    //             content,  
-    //             media,  
-    //             this.noteTypeState  
-    //         );  
-
-    //         if (!obsidianNote) continue;  
-
-    //         console.log(`Validated note ${obsidianNote.title()}`, obsidianNote);  
-
-    //         if (media) {  
-    //             for (const item of media) {  
-    //                 this.noteState.handleAddMedia(  
-    //                     this.mediaManager.parseMedia(item, this.app.vault, this.app.metadataCache)  
-    //                 );  
-    //             }  
-    //         }  
-
-    //         const correspondingAnkiNote = notesInfoResponse.find((note: { noteId: any; }) => note.noteId === frontmatter.nid);  
-
-    //         // Merge anki tags and obsidian tags  
-    //         const obsidianTags = frontmatter.tags || [];  
-    //         const ankiTags = correspondingAnkiNote?.tags || [];  
-    //         const mergedTags = [...new Set([...obsidianTags, ...ankiTags])];  
-
-    //         const tagsBeforeHash = MD5(frontmatter.tags);  
-    //         const tagsAfterHash = MD5(mergedTags);  
-    //         const shouldUpdateTags = tagsBeforeHash !== tagsAfterHash;  
-
-    //         if (obsidianNote.nid === 0) {  
-    //             // new file  
-    //             const promise = this.noteState.handleAddNote(obsidianNote).then(nid => {  
-    //                 if (nid === undefined) {  
-    //                     new Notice(locale.synchronizeAddNoteFailureNotice(file.basename));  
-    //                     return;  
-    //                 }  
-    //                 obsidianNote.nid = nid;  
-    //                 return this.app.vault.modify(file, this.noteManager.dump(obsidianNote, mediaNameMap));  
-    //             });  
-    //             executing.add(promise);  
-    //         }  
-
-    //         if (shouldUpdateTags) {  
-    //             const promise = this.app.vault.modify(file, this.noteManager.dump(obsidianNote, mediaNameMap));  
-    //             executing.add(promise);  
-    //         }  
-
-    //         state.set(obsidianNote.nid, [obsidianNote.digest(), obsidianNote]);  
-    //         console.log(file)
-    //         // 控制并发  
-    //         if (executing.size >= CONCURRENCY_LIMIT) {  
-    //             await Promise.race(executing); // 等待其中一个请求完成  
-    //         }  
-    //     }  
-
-    //     // 等待所有剩余的请求完成  
-    //     await Promise.all(executing);  
-    // };
-
-    // processFiles(files)
-
     for (const file of files) {
+  
       const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;
+      
+
 
       if (!frontmatter) continue;
+      
+
 
       const content = await this.app.vault.cachedRead(file);
-      const media = this.app.metadataCache.getFileCache(file)?.embeds;
+      // const media = this.app.metadataCache.getFileCache(file)?.embeds;
       
       const [obsidianNote, mediaNameMap] = this.noteManager.validateNote(
         file,
         frontmatter,
         content,
-        media,
+        undefined,
         this.noteTypeState
       );
 
+
       if (!obsidianNote) continue;
+
+      //test
+      if(file.basename === "带状疱疹的临床表现"){
+        const theFrontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter
+        console.log("带状疱疹的临床表现:存在",theFrontmatter)
+      }
+      //test end
 
       console.log(`Validated note ${obsidianNote.title()}`, obsidianNote);
 
-      if (media) {
-        for (const item of media) {
-          this.noteState.handleAddMedia(
-            this.mediaManager.parseMedia(item, this.app.vault, this.app.metadataCache)
-          );
-        }
-      }
+      // if (media) {
+      //   for (const item of media) {
+      //     this.noteState.handleAddMedia(
+      //       this.mediaManager.parseMedia(item, this.app.vault, this.app.metadataCache)
+      //     );
+      //   }
+      // }
 
       const correspondingAnkiNote = notesInfoResponse.find((note: any) => note.noteId === frontmatter.nid);
 
@@ -277,6 +219,7 @@ export default class AnkiSynchronizer extends Plugin {
       
     
       if (obsidianNote.nid === 0) {
+        console.log("newfile:",obsidianNote.basename)
         // new file
         const nid = await this.noteState.handleAddNote(obsidianNote);
         if (nid === undefined) {
